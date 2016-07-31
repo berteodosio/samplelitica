@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.berteodosio.samplelitica">
+
+    <application
+        android:name="com.berteodosio.samplelitica.DebugAppApplication"
+        android:allowBackup="false"
+        tools:replace="android:name, android:allowBackup">
+    </application>
+
+</manifest>

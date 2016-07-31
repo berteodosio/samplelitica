@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_congressmen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.berteodosio.samplelitica.congressman.view.CongressmanListActivity">
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:id="@+id/congressman_recycler"
+        tools:listitem="@layout/item_congressman_list"/>
+
+</RelativeLayout>

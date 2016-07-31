@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'      // should be applied AFTER android-apt
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    def API_ENDPOINT = "API_ENDPOINT"
+
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.berteodosio.samplelitica"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // API ENDPOINT
+        buildConfigField "String", API_ENDPOINT, '"http://www.camara.gov.br/SitCamaraWS/"'
+    }
+
+    buildTypes {
+        debug {
+
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    // prevent conflicts
+    retrolambda {
+        jvmArgs '-noverify'
+    }
+}
+
+//noinspection GroovyAssignabilityCheck
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha1'
+    testCompile 'junit:junit:4.12'
+
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+
+    // Support
+    def supportVersion = "23.3.0"
+    compile "com.android.support:appcompat-v7:$supportVersion"
+    compile "com.android.support:design:${supportVersion}"
+    compile "com.android.support:recyclerview-v7:${supportVersion}"
+    compile "com.android.support:cardview-v7:${supportVersion}"
+    androidTestCompile "com.android.support:support-annotations:${supportVersion}"
+
+    // Retrofit
+    def retrofitVersion = "2.0.0"
+    compile ("com.squareup.retrofit2:converter-simplexml:${retrofitVersion}") {
+        exclude module: 'stax-api'
+        exclude module: 'stax'
+        exclude module: 'xpp3'
+
+    }
+    compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    compile "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}"
+
+    // CircleImageView
+    compile 'de.hdodenhof:circleimageview:2.0.0'
+
+    // Glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    // Reactive X
+    compile "io.reactivex:rxjava:1.1.5"
+    compile "io.reactivex:rxandroid:1.2.0"
+
+    // DBFlow
+    def dbflowVersion = "3.0.0-beta3"
+    apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflowVersion}"
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflowVersion}"
+    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflowVersion}"
+
+    // Stetho
+    def stethoVersion = "1.3.1"
+    debugCompile "com.facebook.stetho:stetho:${stethoVersion}"
+    debugCompile "com.facebook.stetho:stetho-okhttp:${stethoVersion}"
+
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    // ReactiveNetwork
+    compile 'com.github.pwittchen:reactivenetwork:0.4.0'
+}
+repositories {
+    mavenCentral()
+}

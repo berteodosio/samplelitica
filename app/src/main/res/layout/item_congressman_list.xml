@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardBackgroundColor="@color/cardBackground"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    app:cardElevation="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/congressman_list_picture"
+            tools:background="@android:color/background_dark"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/congressman_list_social_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/congressman_list_picture"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_alignTop="@id/congressman_list_picture"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/normal_font"
+            tools:text="AIUTHAIUTH AITUQHTIUQHTIQ TAOTIAJ AGHQOT"/>
+
+        <TextView
+            android:id="@+id/congressman_list_real_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/congressman_list_picture"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_below="@id/congressman_list_social_name"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/very_small_font"
+            tools:text="AOITH AITÇSFHJP STIA LKSJHTI PQT HTHQOST"/>
+
+        <TextView
+            android:id="@+id/congressman_list_party"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/congressman_list_social_name"
+            android:layout_alignBottom="@id/congressman_list_picture"
+            android:maxLines="1"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/normal_font"
+            tools:text="PUHQ"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
